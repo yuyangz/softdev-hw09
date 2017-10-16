@@ -19,29 +19,29 @@ c = db.cursor()    #facilitate db ops
 #==========================================================
 #INSERT YOUR POPULATE CODE IN THIS ZONE
 
-'''
+
 command = "CREATE TABLE courses(code TEXT, mark INTEGER, id INTEGER);" #put SQL statement in this string
 c.execute(command)    #run SQL statement
 
-f= csv.DictReader(open("courses.csv"))
+f= csv.DictReader(open("courses.csv")) 
 
-for row in f:
-    code = row['code']
+for row in f: #goes through each row
+    code = row['code'] 
     mark = row['mark']
-    ident = row['id']
-    command = "INSERT INTO courses VALUE(code, mark, indent);"
+    s_id = row['id']
+    command = "INSERT INTO courses VALUE('" + code + "'," + mark + ", " + s_id + ");"
     c.execute(command)
-'''
+
 command = "CREATE TABLE peeps(name TEXT, age INTEGER, id INTEGER);" #put SQL statement in this string
 c.execute(command)    #run SQL statement
 
 f= csv.DictReader(open("peeps.csv"))
 
-for row in f:
+for row in f: #goes through each row
     name = row['name']
     age = row['age']
-    ident = row['id']
-    command = "INSERT INTO peeps VALUE(name, age, indent);" 
+    s_id = row['id']
+    command = "INSERT INTO peeps VALUE(' " + name + "', " + age + ", " + s_id + ");" 
     c.execute(command)
     
 
